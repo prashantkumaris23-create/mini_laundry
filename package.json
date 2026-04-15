@@ -1,0 +1,18 @@
+{
+  "name": "mini-laundry-order-management",
+  "version": "1.0.0",
+  "description": "Mini Laundry Order Management System for dry cleaning stores.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "laundry",
+    "orders",
+    "dry-cleaning",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "Mini Laundry Order Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "orderId",
+      "value": "LND-20260415-0001"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Price List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/prices"
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerName\": \"Asha Kumar\",\n  \"phone\": \"9876543210\",\n  \"orderTakenDate\": \"2026-04-15\",\n  \"items\": [\n    { \"garment\": \"Shirt\", \"quantity\": 2 },\n    { \"garment\": \"Saree\", \"quantity\": 1 }\n  ]\n}"
+        },
+        "url": "{{baseUrl}}/api/orders"
+      }
+    },
+    {
+      "name": "List Orders",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/orders"
+      }
+    },
+    {
+      "name": "Filter Orders By Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/orders?status=READY"
+      }
+    },
+    {
+      "name": "Search Orders",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/orders?q=asha"
+      }
+    },
+    {
+      "name": "Search By Garment",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/orders?garment=shirt"
+      }
+    },
+    {
+      "name": "Get Order By ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/orders/{{orderId}}"
+      }
+    },
+    {
+      "name": "Update Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"READY\"\n}"
+        },
+        "url": "{{baseUrl}}/api/orders/{{orderId}}/status"
+      }
+    },
+    {
+      "name": "Dashboard",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/dashboard"
+      }
+    }
+  ]
+}

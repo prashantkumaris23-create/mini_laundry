@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mini Laundry Orders</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Dry cleaning desk</p>
+          <h1>Mini Laundry Orders</h1>
+        </div>
+        <button id="refreshButton" type="button">Refresh</button>
+      </section>
+
+      <section class="dashboard" aria-label="Dashboard">
+        <div>
+          <span>Total Orders</span>
+          <strong id="totalOrders">0</strong>
+        </div>
+        <div>
+          <span>Total Revenue</span>
+          <strong id="totalRevenue">₹0</strong>
+        </div>
+        <div>
+          <span>Received</span>
+          <strong id="receivedCount">0</strong>
+        </div>
+        <div>
+          <span>Ready</span>
+          <strong id="readyCount">0</strong>
+        </div>
+        <div>
+          <span>Delivered</span>
+          <strong id="deliveredCount">0</strong>
+        </div>
+      </section>
+
+      <section class="layout">
+        <div class="left-stack">
+          <form id="orderForm" class="panel">
+            <h2>Create Order</h2>
+            <label>
+              Customer Name
+              <input name="customerName" required placeholder="Asha Kumar">
+            </label>
+            <label>
+              Phone Number
+              <input name="phone" required placeholder="9876543210">
+            </label>
+            <label>
+              Order Taken Date
+              <input name="orderTakenDate" type="date" required>
+            </label>
+
+            <div class="items-head">
+              <h3>Garments</h3>
+              <button id="addItemButton" type="button">Add item</button>
+            </div>
+            <div id="items"></div>
+
+            <label>
+              Estimated Delivery Date
+              <input name="estimatedDeliveryDate" type="date">
+            </label>
+
+            <button type="submit">Create Order</button>
+            <p id="formMessage" role="status"></p>
+          </form>
+
+          <section class="panel daily-panel">
+            <h2>Orders Taken By Date</h2>
+            <div id="dailyOrdersList" class="daily-list"></div>
+          </section>
+        </div>
+
+        <div class="right-stack">
+          <section class="panel orders-panel">
+            <div class="orders-head">
+              <h2>Orders</h2>
+              <div class="filters">
+              <select id="statusFilter" aria-label="Filter by status">
+                <option value="">All active orders</option>
+                <option>RECEIVED</option>
+                <option>PROCESSING</option>
+                <option>READY</option>
+                <option>DELIVERED</option>
+              </select>
+              <input id="searchFilter" placeholder="Customer name or phone" aria-label="Search by customer name or phone">
+              <input id="garmentFilter" placeholder="Garment type" aria-label="Search by garment type">
+              <button id="searchButton" type="button">Search</button>
+              <button id="clearSearchButton" class="secondary" type="button">Clear</button>
+            </div>
+          </div>
+            <div id="ordersList" class="orders-list"></div>
+          </section>
+
+          <section class="panel delivered-panel">
+            <div class="delivered-head">
+              <span>Delivered</span>
+              <strong id="deliveredPanelCount">0</strong>
+            </div>
+            <h2>Delivered Orders</h2>
+            <div id="deliveredOrdersList" class="delivered-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <template id="itemTemplate">
+      <div class="item-row">
+        <select name="garment" required></select>
+        <input name="quantity" type="number" min="1" value="1" required>
+        <button type="button" class="remove-item">Remove</button>
+      </div>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
