@@ -301,22 +301,4 @@ What I would improve with more time:
 - Add customer order history.
 - Deploy the app on Render, Railway, or another hosting platform.
 
-## Repository Link
-
-Public GitHub link:
-
-```text
-Add your GitHub repository URL here after pushing this project.
-```
-
-Suggested Git commands:
-
-```bash
-git init
-git add .
-git commit -m "Build mini laundry order management system"
-git branch -M main
-git remote add origin https://github.com/<your-username>/mini-laundry-order-management.git
-git push -u origin main
-```
-CODED by Prashant
+CODED by Prashant Kumar
